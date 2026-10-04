@@ -15,26 +15,6 @@ describe('HTTP requests', () => {
     // })
 
 
-    const baseURL = 'https://dummy.restapiexample.com/api/v1'
-
-    // it('GET employees', () => {
-    //     cy.request('GET', baseURL + '/employees').should((response) => {
-    //         console.log('response: ', response);
-    //     })
-    // })
-
-    // it('POST new employee', () => {
-    //     cy.request({
-    //         method: 'POST',
-    //         url: baseURL + '/create',
-    //         body: {
-    //             name: 'test employee 1',
-    //             age: 23,
-    //             id: 100
-    //         }
-    //     })
-    // })
-
     describe('Booking website - Restful booker', () => {
         const baseURLbooking = 'https://restful-booker.herokuapp.com'
 
@@ -128,7 +108,6 @@ describe('HTTP requests', () => {
             }).then((response) => {
                 // expect(response.status).to.eq(200);
                 // expect(response.body).to.have.property('bookingid').and.be.a('number');
-                // expect(response.body.booking).to.deep.eq(newEntry);
                 // bookingId = response.body.bookingid;
 
                 expect(response.status).to.eq(200);
@@ -138,30 +117,6 @@ describe('HTTP requests', () => {
             })
         })
 
-        // it('returns a list of booking ids', () => {
-        //     cy.request({
-        //         method: 'GET',
-        //         url: `${baseURLbooking}/booking`,
-        //         headers: { Accept: 'application/json' },
-        //     }).then((response) => {
-        //         expect(response.status).to.eq(200)
-        //         expect(response.body).to.be.an('array').and.not.be.empty
-        //         expect(response.body[0]).to.have.property('bookingid')
-        //     })
-        // })
-
-        // it('filters bookings by name', () => {
-        //     cy.request({
-        //         method: 'GET',
-        //         url: `${baseURLbooking}/booking`,
-        //         qs: { firstname: newEntry.firstname, lastname: newEntry.lastname },
-        //     }).then((response) => {
-        //         expect(response.status).to.eq(200)
-        //         expect(response.body.map((b) => b.bookingid)).to.include(bookingId)
-        //     })
-        // })
-
-        // The below is not working - failing with a 404
         it('returns the booking above', () => {
             cy.request({
                 method: 'GET',
@@ -174,12 +129,6 @@ describe('HTTP requests', () => {
                 expect(response.body).to.deep.eq(newEntry);
             })
         })
-
-        /*
-        https://restful-booker.herokuapp.com/booking/undefined
-        The response we received from your web server was:
-        > 404: Not Found
-        */
 
     })
 })
